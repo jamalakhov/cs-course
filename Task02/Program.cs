@@ -2,7 +2,7 @@
 // принимает два числа и выдает большее число
 
 // Например:
-// a = 5, b = 7 -> max = 7
+// 5; 7 -> max = 7
 
 Console.Clear();
 
@@ -13,14 +13,15 @@ while (condition)
 {
     bool myBrake = false;
 
-    Console.Write("<----- Введите два числа через пробел: ");
+    Console.Write("<----- Введите два числа через символ ';': ");
 
-    var input = Console.ReadLine();
+    string input = Console.ReadLine();
 
     //Проверяем входящее значение на null
     if (input != null)
     {
-        string[] str = input.Trim().Split(' ');
+        
+        string[] str = input.Trim().Split(';');
 
         //Проверяем количество введенных значений
         if (str.Length == 2)
@@ -31,7 +32,7 @@ while (condition)
             for (int i = 0; i < str.Length; i++)
             {
                 double number;
-                if (double.TryParse(str[i], out number))
+                if (double.TryParse(str[i].Trim(), out number))
                 {
                     arrayDouble[i] = number;
                 }

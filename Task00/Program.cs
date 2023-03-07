@@ -7,10 +7,9 @@
 // 7 -> 49
 
 Console.Clear();
-bool condition = true;
 
 //Запускаем цикл
-while (condition)
+while (true)
 {
     Console.Write("<----- Введите число: ");
 
@@ -25,19 +24,27 @@ while (condition)
         //Проверяем возможность конвертации строки в число
         if (double.TryParse(str, out output))
         {
-            int number = Convert.ToInt32(output);
+            //Проверяем на целое число
+            if (Convert.ToInt32(output) == Convert.ToDouble(output))
+            {
+                int number = Convert.ToInt32(output);
 
-            //Если все ОК, то печатаем ответ и выходим из цикла
-            Console.WriteLine(number * number);
-            condition = false;
+                //Если все ОК, то печатаем ответ и выходим из цикла
+                Console.WriteLine(number * number);                
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: дробное число");
+            }
         }
         else
         {
-            Console.WriteLine($"Полученное значение -> ({str}) <- не является числом");
+            Console.WriteLine($"Ошибка: не является числом -> ({str})");
         }
     }
     else
     {
-        Console.WriteLine("Ввод не может быть пустым");
+        Console.WriteLine("Ошибка: пустое значение");
     }
 }

@@ -14,15 +14,15 @@ bool condition = true;
 while (condition)
 {
     bool myBrake = false;
-    
-    Console.Write("<----- Введите два числа через пробел: ");
+
+    Console.Write("<----- Введите два числа через символ ';': ");
 
     var input = Console.ReadLine();
 
     //Проверяем входящее значение на null
     if (input != null)
     {
-        string[] array = input.Trim().Split(' ');
+        string[] array = input.Trim().Split(';');
 
         //Проверяем размер массива
         if (array.Length == 2)
@@ -33,16 +33,16 @@ while (condition)
             for (int i = 0; i < array.Length; i++)
             {
                 //Проверяем возможность конвертации строки в число
-                if (double.TryParse(array[i], out number))
+                if (double.TryParse(array[i].Trim(), out number))
                 {
-                    arrayInt[i] = Convert.ToInt32(number);
+                    arrayInt[i] = Convert.ToInt32(number);                    
                 }
                 else
                 {
-                    Console.WriteLine($"Полученное значение -> ({array[i]}) <- не является числом");
+                    Print($"Полученное значение -> ({array[i]}) <- не является числом");
                     myBrake = true;
                     break;
-                }                
+                }
             }
 
             if (myBrake)
@@ -55,22 +55,27 @@ while (condition)
 
             if (a == b * b)
             {
-                Console.WriteLine("Да");
+                Print("Да");
             }
             else
             {
-                Console.WriteLine("Нет");
+                Print("Нет");
             }
 
             condition = false;
         }
         else
         {
-            Console.WriteLine($"Введено некорректное значение -> {input}");
+            Print($"Введено некорректное значение -> {input}");
         }
     }
     else
     {
-        Console.WriteLine("Вводимое значение не может быть пустым");
+        Print("Вводимое значение не может быть пустым");
+    }
+
+    static void Print(string result)
+    {
+        Console.WriteLine(result);
     }
 }

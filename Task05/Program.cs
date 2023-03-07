@@ -40,21 +40,26 @@ while (true)
                 }
                 else
                 {
-                    Console.WriteLine($"Ошибка: отрицательное число или '0' ({number})");
+                    Print($"Ошибка: отрицательное число или '0' ({number})");
                 }
             }
             else
             {
-                Console.WriteLine($"Ошибка: дробное число ({number})");
+                Print($"Ошибка: дробное число ({number})");
             }
         }
         else
         {
-            Console.WriteLine($"Полученное значение -> ({str}) <- не является числом");
+            Print($"Полученное значение -> ({str}) <- не является числом");
         }
     }
     else
     {
-        Console.WriteLine("Вводимое значение не может быть пустым");
+        Print("Вводимое значение не может быть пустым");
+    }
+
+    static void Print(string result)
+    {
+        Console.WriteLine(result);
     }
 }

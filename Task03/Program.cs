@@ -3,14 +3,12 @@
 // 3 -> Среда
 // 5 -> Пятница
 
-// bool condition = true;
 string[] daysOfWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресение" };
 
 Console.Clear();
 
 //Запускаем цикл
-// while (condition)
-while(true)
+while (true)
 {
     Console.Write("<----- Введите номер дня недели: ");
 
@@ -33,28 +31,32 @@ while(true)
                 //Проверяем корректное-ли число было введено
                 if (day > daysOfWeek.Length || day <= 0)
                 {
-                    Console.WriteLine($"Ошибка: некорректное число -> ({day})");
+                    Print($"Ошибка: некорректное число -> ({day})");
                 }
                 else
                 {
                     //Если все ОК, то печатаем ответ и выходим из цикла
-                    Console.WriteLine(daysOfWeek[day - 1]);
-                    // condition = false;
+                    Print(daysOfWeek[day - 1].ToString());
                     break;
                 }
             }
             else
             {
-                Console.WriteLine("Ошибка: дробное число");
+                Print("Ошибка: дробное число");
             }
         }
         else
         {
-            Console.WriteLine($"Ошибка: значение ({str}) не удовлетворяет условиям");
+            Print($"Ошибка: значение ({str}) не удовлетворяет условиям");
         }
     }
     else
     {
-        Console.WriteLine("Ошибка: значение не может быть пустым");
+        Print("Ошибка: значение не может быть пустым");
+    }
+
+    static void Print(string result)
+    {
+        Console.WriteLine(result);
     }
 }
