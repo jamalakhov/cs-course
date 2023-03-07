@@ -6,15 +6,15 @@
 // а = 25, b = 5 -> да
 // а = 2, b = 10 -> нет
 
-bool condition = true;
-
-
 Console.Clear();
+
+bool condition = true;
 
 //Запускаем цикл
 while (condition)
 {
     bool myBrake = false;
+    
     Console.Write("<----- Введите два числа через пробел: ");
 
     var input = Console.ReadLine();
