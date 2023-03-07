@@ -3,13 +3,14 @@
 // 3 -> Среда
 // 5 -> Пятница
 
-bool condition = true;
+// bool condition = true;
 string[] daysOfWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресение" };
 
 Console.Clear();
 
 //Запускаем цикл
-while (condition)
+// while (condition)
+while(true)
 {
     Console.Write("<----- Введите номер дня недели: ");
 
@@ -24,27 +25,36 @@ while (condition)
         //Проверяем возможность конвертации строки в число
         if (double.TryParse(str, out number))
         {
-            int day = Convert.ToInt32(number);
-
-            //Проверяем корректное-ли число было введено
-            if (day > daysOfWeek.Length || day <= 0)
+            //Проверяем на целое число
+            if (Convert.ToInt32(number) == Convert.ToDouble(number))
             {
-                Console.WriteLine($"Введено некорректное число -> ({day})");
+                int day = Convert.ToInt32(number);
+
+                //Проверяем корректное-ли число было введено
+                if (day > daysOfWeek.Length || day <= 0)
+                {
+                    Console.WriteLine($"Ошибка: некорректное число -> ({day})");
+                }
+                else
+                {
+                    //Если все ОК, то печатаем ответ и выходим из цикла
+                    Console.WriteLine(daysOfWeek[day - 1]);
+                    // condition = false;
+                    break;
+                }
             }
             else
             {
-                //Если все ОК, то печатаем ответ и выходим из цикла
-                Console.WriteLine(daysOfWeek[day - 1]);        
-                condition = false;
+                Console.WriteLine("Ошибка: дробное число");
             }
         }
         else
         {
-            Console.WriteLine($"Полученное значение -> ({str}) <- не является числом");
+            Console.WriteLine($"Ошибка: значение ({str}) не удовлетворяет условиям");
         }
     }
     else
     {
-        Console.WriteLine("Вводимое значение не может быть пустым");
+        Console.WriteLine("Ошибка: значение не может быть пустым");
     }
 }
