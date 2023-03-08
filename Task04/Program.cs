@@ -72,9 +72,8 @@ while (condition)
     {
         Print("Вводимое значение не может быть пустым");
     }
-
-    static void Print(string resulr)
-    {
-        Console.WriteLine(resulr);
-    }
+}
+static void Print(string resulr)
+{
+    Console.WriteLine(resulr);
 }

@@ -15,12 +15,11 @@ while (condition)
 
     Console.Write("<----- Введите два числа через символ ';': ");
 
-    string input = Console.ReadLine();
+    var input = Console.ReadLine();
 
     //Проверяем входящее значение на null
     if (input != null)
     {
-        
         string[] str = input.Trim().Split(';');
 
         //Проверяем количество введенных значений
@@ -70,9 +69,9 @@ while (condition)
     {
         Print("Вводимое значение не может быть пустым");
     }
+}
 
-    static void Print(string resulr)
-    {
-        Console.WriteLine(resulr);
-    }
+static void Print(string resulr)
+{
+    Console.WriteLine(resulr);
 }

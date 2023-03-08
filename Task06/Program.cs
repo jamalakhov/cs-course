@@ -43,9 +43,8 @@ while (true)
     {
         Print("Ошибка: значение не может быть пустым");
     }
-
-    static void Print(string result)
-    {
-        Console.WriteLine(result);
-    }
+}
+static void Print(string result)
+{
+    Console.WriteLine(result);
 }

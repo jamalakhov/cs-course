@@ -33,26 +33,30 @@ while (true)
                 if (myInt >= 100 && myInt < 1000)
                 {
                     //Печатаем и выходим из цикла
-                    Console.WriteLine(myInt % 10);
+                    Print((myInt % 10).ToString());
                     break;
                 }
                 else
                 {
-                    Console.WriteLine($"Ошибка: не трехзначное число ({number})");
+                    Print($"Ошибка: не трехзначное число ({number})");
                 }
             }
             else
             {
-                Console.WriteLine($"Ошибка: дробное число ({number})");
+                Print($"Ошибка: дробное число ({number})");
             }
         }
         else
         {
-            Console.WriteLine($"Ошибка: значение ({str}) не является числом");
+            Print($"Ошибка: значение ({str}) не является числом");
         }
     }
     else
     {
-        Console.WriteLine("Ошибка: пустой ввод");
+        Print("Ошибка: пустой ввод");
     }
+}
+static void Print(string result)
+{
+    Console.WriteLine(result);
 }

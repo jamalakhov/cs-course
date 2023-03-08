@@ -30,8 +30,7 @@ while (true)
                 //Проверяем на положительное число
                 if (myInt > 1)
                 {
-                    //Печатаем числа
-                    // int i =
+                    //Печатаем числа                    
                     for (int i = 2; i <= myInt; i += 2)
                     {
                         Console.Write($"{i} ");
@@ -58,9 +57,8 @@ while (true)
     {
         Print("Ошибка: значение не может быть пустым");
     }
-
-    static void Print(string result)
-    {
-        Console.WriteLine(result);
-    }
+}
+static void Print(string result)
+{
+    Console.WriteLine(result);
 }

@@ -35,7 +35,7 @@ while (condition)
                 //Проверяем возможность конвертации строки в число
                 if (double.TryParse(array[i].Trim(), out number))
                 {
-                    arrayInt[i] = Convert.ToInt32(number);                    
+                    arrayInt[i] = Convert.ToInt32(number);
                 }
                 else
                 {
@@ -73,9 +73,9 @@ while (condition)
     {
         Print("Вводимое значение не может быть пустым");
     }
+}
 
-    static void Print(string result)
-    {
-        Console.WriteLine(result);
-    }
+static void Print(string result)
+{
+    Console.WriteLine(result);
 }

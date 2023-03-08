@@ -57,9 +57,8 @@ while (true)
     {
         Print("Вводимое значение не может быть пустым");
     }
-
-    static void Print(string result)
-    {
-        Console.WriteLine(result);
-    }
+}
+static void Print(string result)
+{
+    Console.WriteLine(result);
 }
