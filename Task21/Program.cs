@@ -13,7 +13,7 @@ int x2 = GetCoordinate("Введите х2: ");
 int y2 = GetCoordinate("Введите y2: ");
 int z2 = GetCoordinate("Введите z2: ");
 
-double distance = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2));;
+double distance = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2) + Math.Pow(z1 - z2, 2));
 double roundDistance = Math.Round(distance, 2, MidpointRounding.ToZero);
 
 Console.WriteLine($"Расстояние между точка координат: {roundDistance}");
