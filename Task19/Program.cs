@@ -1,33 +1,26 @@
-﻿// 19. Напишите программу, которая принимает на вход
-// пятизначное число и проверяет, является ли оно палиндромом.
+// 19. Напишите программу, которая принимает на вход
+// число и проверяет, является ли оно палиндромом.
 // 14212 -> нет
 // 12821 -> да
 // 23432 -> да
-
 Console.Clear();
-// I
-int number = GetNumber("Введите пятизначное число: ");
 
-bool palindrome = IsPalindromeNumber(number);
+long number = GetNumber("Введите число: ");
 
-Console.WriteLine(palindrome ? "да" : "нет");
-
-// II
-string numberToString = GetString("Введите число: ");
-
-palindrome = IsPalindromeString(numberToString);
+bool palindrome = IsPalindrome(number);
 
 Console.WriteLine(palindrome ? "да" : "нет");
 
 //////////////////////////////////////////////////////////////////
-int GetNumber(string message)
+
+long GetNumber(string message)
 {
     while (true)
     {
         Console.Write(message);
         var input = Console.ReadLine();
 
-        if(Int32.TryParse(input, out int number) && number > 9999 && number < 100000)
+        if(Int64.TryParse(input, out long number))
         {
             return number;            
         }
@@ -38,45 +31,18 @@ int GetNumber(string message)
     }
 }
 
-string GetString(string message)
-{
-    while (true)
+bool IsPalindrome(long number)
+{    
+    if(number < 10) return false;
+    
+    long origin = number;
+    long reversed = 0;
+    
+    while(number > 0)
     {
-        Console.Write(message);
-        var input = Console.ReadLine();
+        reversed = reversed *10 + number % 10;
+        number /= 10;        
+    }    
 
-        if(Int32.TryParse(input, out int number))
-        {
-            return number.ToString();            
-        }
-        else
-        {
-            Console.WriteLine($"Ошибка: введено недопустимое значение ({input})");
-        }        
-    }
-
-}
-
-bool IsPalindromeNumber(int number)
-{
-    int firstDigit = number / 10000;
-    int secondDigit = (number / 1000) % 10;
-    int thirdDigit = (number / 100) % 10;
-    int fourthDigit = (number / 10) % 10;
-    int fifthDigit = number % 10;
-
-    return (firstDigit == fifthDigit) && (secondDigit == fourthDigit);
-}
-
-bool IsPalindromeString(string input)
-{
-    for (int i = 0; i < input.Length / 2; i++)
-     {
-        if (input[i] != input[input.Length - 1 - i])
-        {
-            return false;            
-        }
-    }
-
-    return true;
+    return origin == reversed;
 }
