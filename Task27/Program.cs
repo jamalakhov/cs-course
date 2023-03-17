@@ -15,7 +15,7 @@ int GetSumDigit(int input)
 {
     int sum = 0;
 
-    while(input > 0)
+    while (input > 0)
     {
         sum += input % 10;
         input /= 10;
@@ -36,7 +36,7 @@ int ReadConsole(string message)
             int number = Convert.ToInt32(input);
 
             if (number == 0) throw new FormatException();
-            if(number < 0) number *= -1;
+            if (number < 0) number *= -1;
 
             return number;
         }
