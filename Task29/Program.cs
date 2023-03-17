@@ -10,7 +10,6 @@ int[] array = CreateArray(arrSize);
 
 PrintArray(array);
 
-
 int[] CreateArray(int arraySize)
 {
     int[] newArray = new int[arraySize];
@@ -35,7 +34,7 @@ int ReadConsole(string message)
     while (true)
     {
         Console.Write(message);
-        string input = "";
+        var input = "";
         try
         {
             input = Console.ReadLine();

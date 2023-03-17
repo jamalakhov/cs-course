@@ -29,7 +29,7 @@ int ReadConsole(string message)
     while (true)
     {
         Console.Write(message);
-        string input = "";
+        var input = "";
         try
         {
             input = Console.ReadLine();
