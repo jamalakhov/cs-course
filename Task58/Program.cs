@@ -9,16 +9,19 @@
 
 Console.Clear();
 
-int[,] matrix1 = CreateMatrixInt(4, 4, 1, 10);
-PrintMatrix(matrix1);
-
-int[,] matrix2 = CreateMatrixInt(4, 3, 1, 10);
-PrintMatrix(matrix2);
+int[,] matrix1 = InputMatrix("Матрица №1");
+int[,] matrix2 = InputMatrix("Матрица №2");
 
 if (CanMultiplyMatrices(matrix1, matrix2))
 {
+    FillMatrixInt(matrix1, 1, 10);
+    FillMatrixInt(matrix2, 1, 10);
+
+    PrintMatrix(matrix1, "Матрица 1:");
+    PrintMatrix(matrix2, "Матрица 2:");
+
     int[,] multiplyMatrix = MultiplyMatrix(matrix1, matrix2);
-    PrintMatrix(multiplyMatrix);
+    PrintMatrix(multiplyMatrix, "Произведение матриц:");
 }
 else
 {
@@ -29,6 +32,18 @@ else
 bool CanMultiplyMatrices(int[,] matrix1, int[,] matrix2)
 {
     return matrix1.GetLength(1) == matrix2.GetLength(0);
+}
+
+void FillMatrixInt(int[,] matrix, int min, int max)
+{
+    Random rnd = new Random();
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = rnd.Next(min, max + 1);
+        }
+    }
 }
 
 int[,] MultiplyMatrix(int[,] matrix1, int[,] matrix2)
@@ -48,23 +63,9 @@ int[,] MultiplyMatrix(int[,] matrix1, int[,] matrix2)
     return newMatrix;
 }
 
-int[,] CreateMatrixInt(int countRows, int countColumns, int min, int max)
+void PrintMatrix(int[,] matrix, string message)
 {
-    Random rnd = new Random();
-    int[,] matrix = new int[countRows, countColumns];
-
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = rnd.Next(min, max + 1);
-        }
-    }
-    return matrix;
-}
-
-void PrintMatrix(int[,] matrix)
-{
+    Console.WriteLine(message);
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
@@ -74,4 +75,20 @@ void PrintMatrix(int[,] matrix)
         Console.WriteLine();
     }
     Console.WriteLine();
+}
+
+int[,] InputMatrix(string message)
+{
+    Console.WriteLine(message);
+    int rows = ReadConsole("Введите количество строк: ");
+    int colums = ReadConsole("Введите количество столбцов: ");
+    Console.WriteLine();
+
+    return new int[rows, colums];
+}
+
+int ReadConsole(string message)
+{
+    System.Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
 }
