@@ -21,5 +21,5 @@ void PrintNaturalNumber(int number)
 int ReadConsole(string message)
 {
     Console.Write(message);
-    return Conver.ToInt32(Console.ReadLine());
+    return Convert.ToInt32(Console.ReadLine());
 }
